@@ -1,0 +1,60 @@
+# ZED 2 Camera Configuration
+# Stereo-Inertial mode
+
+camera:
+  name: "zed2"
+  model: "stereo-imu"
+
+  # Image resolution (HD720 mode)
+  width: 1280
+  height: 720
+  fps: 30
+
+  # Left camera intrinsics
+  left:
+    fx: 527.158
+    fy: 527.158
+    cx: 644.693
+    cy: 363.068
+    k1: -0.0414
+    k2: 0.0098
+    p1: 0.0
+    p2: 0.0
+    k3: -0.0054
+
+  # Right camera intrinsics
+  right:
+    fx: 527.158
+    fy: 527.158
+    cx: 644.693
+    cy: 363.068
+    k1: -0.0414
+    k2: 0.0098
+    p1: 0.0
+    p2: 0.0
+    k3: -0.0054
+
+  # Stereo baseline (meters)
+  baseline: 0.12
+
+  # Camera-IMU extrinsics
+  T_cam_imu:
+    rotation: [1.0, 0.0, 0.0, 0.0]
+    translation: [0.0, 0.0, 0.0]
+
+# IMU configuration
+imu:
+  rate: 400.0
+  gyro_noise: 0.001
+  accel_noise: 0.01
+  gyro_bias_noise: 0.00001
+  accel_bias_noise: 0.001
+
+# ROS2 topics
+topics:
+  left_image: "/zed2/zed_node/left/image_rect_color"
+  right_image: "/zed2/zed_node/right/image_rect_color"
+  depth: "/zed2/zed_node/depth/depth_registered"
+  imu: "/zed2/zed_node/imu/data"
+  camera_info_left: "/zed2/zed_node/left/camera_info"
+  camera_info_right: "/zed2/zed_node/right/camera_info"

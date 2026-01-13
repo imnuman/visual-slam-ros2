@@ -1,0 +1,63 @@
+# Intel RealSense D435i Camera Configuration
+# Stereo-Inertial mode
+
+camera:
+  name: "realsense_d435i"
+  model: "stereo-imu"
+
+  # Image resolution
+  width: 640
+  height: 480
+  fps: 30
+
+  # Left camera (infrared 1) intrinsics
+  left:
+    fx: 382.613
+    fy: 382.613
+    cx: 318.404
+    cy: 237.593
+    k1: 0.0
+    k2: 0.0
+    p1: 0.0
+    p2: 0.0
+    k3: 0.0
+
+  # Right camera (infrared 2) intrinsics
+  right:
+    fx: 382.613
+    fy: 382.613
+    cx: 318.404
+    cy: 237.593
+    k1: 0.0
+    k2: 0.0
+    p1: 0.0
+    p2: 0.0
+    k3: 0.0
+
+  # Stereo baseline (meters)
+  baseline: 0.05
+
+  # Camera-IMU extrinsics
+  # Transform from camera (left) to IMU frame
+  T_cam_imu:
+    # Rotation (quaternion: w, x, y, z)
+    rotation: [1.0, 0.0, 0.0, 0.0]
+    # Translation (meters)
+    translation: [0.0, 0.0, 0.0]
+
+# IMU configuration (BMI055)
+imu:
+  rate: 200.0
+  gyro_noise: 0.004
+  accel_noise: 0.04
+  gyro_bias_noise: 0.00004
+  accel_bias_noise: 0.004
+
+# ROS2 topics
+topics:
+  left_image: "/camera/infra1/image_rect_raw"
+  right_image: "/camera/infra2/image_rect_raw"
+  depth: "/camera/depth/image_rect_raw"
+  imu: "/camera/imu"
+  camera_info_left: "/camera/infra1/camera_info"
+  camera_info_right: "/camera/infra2/camera_info"

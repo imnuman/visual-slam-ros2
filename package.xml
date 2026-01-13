@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>visual_slam</name>
+  <version>1.0.0</version>
+  <description>Visual-Inertial SLAM for ROS2</description>
+  <maintainer email="al@numan.dev">Al Numan</maintainer>
+  <license>GPL-3.0</license>
+
+  <url type="website">https://github.com/imnuman/visual-slam-ros2</url>
+  <url type="repository">https://github.com/imnuman/visual-slam-ros2.git</url>
+
+  <author email="al@numan.dev">Al Numan</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>tf2_ros</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+  <depend>pcl_ros</depend>
+
+  <build_depend>libopencv-dev</build_depend>
+  <build_depend>libeigen3-dev</build_depend>
+  <build_depend>libpcl-dev</build_depend>
+
+  <exec_depend>libopencv-dev</exec_depend>
+  <exec_depend>libeigen3-dev</exec_depend>
+  <exec_depend>libpcl-dev</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>ament_cmake_gtest</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

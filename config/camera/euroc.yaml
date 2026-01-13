@@ -1,0 +1,73 @@
+# EuRoC MAV Dataset Camera Configuration
+# For benchmarking and evaluation
+
+camera:
+  name: "euroc"
+  model: "stereo-imu"
+
+  # Image resolution
+  width: 752
+  height: 480
+  fps: 20
+
+  # Left camera intrinsics (cam0)
+  left:
+    fx: 458.654
+    fy: 457.296
+    cx: 367.215
+    cy: 248.375
+    k1: -0.28340811
+    k2: 0.07395907
+    p1: 0.00019359
+    p2: 1.76187114e-05
+    k3: 0.0
+
+  # Right camera intrinsics (cam1)
+  right:
+    fx: 457.587
+    fy: 456.134
+    cx: 379.999
+    cy: 255.238
+    k1: -0.28368365
+    k2: 0.07451284
+    p1: -0.00010473
+    p2: -3.55590700e-05
+    k3: 0.0
+
+  # Stereo baseline (meters)
+  baseline: 0.110074
+
+  # Camera-IMU extrinsics (T_imu_cam0)
+  T_cam_imu:
+    rotation: [0.9999, 0.0044, -0.0117, -0.0038]
+    translation: [0.0652, -0.0207, -0.0080]
+
+# IMU configuration (ADIS16448)
+imu:
+  rate: 200.0
+  gyro_noise: 1.6968e-04
+  accel_noise: 2.0000e-03
+  gyro_bias_noise: 1.9393e-05
+  accel_bias_noise: 3.0000e-03
+
+# Dataset paths (for offline evaluation)
+dataset:
+  path: "/path/to/euroc"
+  sequences:
+    - MH_01_easy
+    - MH_02_easy
+    - MH_03_medium
+    - MH_04_difficult
+    - MH_05_difficult
+    - V1_01_easy
+    - V1_02_medium
+    - V1_03_difficult
+    - V2_01_easy
+    - V2_02_medium
+    - V2_03_difficult
+
+# Ground truth format
+ground_truth:
+  available: true
+  format: "euroc"
+  filename: "state_groundtruth_estimate0/data.csv"
